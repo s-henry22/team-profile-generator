@@ -15,34 +15,74 @@ fs.writeFile('./index.html', generatePage(name, title), err => {
 
 const promptUser = employeeData => {
     
-    console.log('promptUser',teamDataArray);
+    //console.log('promptUser',teamDataArray);
 
     return inquirer.prompt([
         {
             type: 'input',
             name: 'name',
-            message: 'What is your name?'
+            message: 'What is your name?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your name.');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'position',
-            message: 'Enter your job title'
+            message: 'Enter your job title',
+            validate: jobInput => {
+                if (jobInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your job title.');
+                    return false;
+                }
+            }
         },
         {
             type: 'number',
             name: 'employeeID',
-            message: 'Please enter your employee ID'
+            message: 'Please enter your employee ID (Type number)',
+            validate: employeeIdInput => {
+                if (employeeIdInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your employee ID.');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Please enter your email address'
+            message: 'Please enter your email address',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your email address.');
+                    return false;
+                }
+            }
         },
 
         {
             type:'number',
             name: 'office',
-            message: 'What is your office number?'
+            message: 'What is your office number? (Type number)',
+            validate: officeInput => {
+                if (officeInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your email address.');
+                    return false;
+                }
+            }
         },
         {
             type: 'confirm',
