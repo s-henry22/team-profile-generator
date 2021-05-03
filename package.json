@@ -1,0 +1,22 @@
+{
+  "name": "team-profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-henry22/team-profile-generator.git"
+  },
+  "author": "Spencer Henry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s-henry22/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/s-henry22/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
