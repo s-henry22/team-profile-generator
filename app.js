@@ -1,17 +1,17 @@
 const inquirer = require('inquirer');
 let teamDataArray = [];
-/*const fs = require('fs');
+const fs = require('fs');
 const generatePage = require('./src/page-template.js');
 
-const teamDataArgs = process.argv.slice(2, process.argv.length);
+//const teamDataArgs = process.argv.slice(2, process.argv.length);
 
-const [name, title] = teamDataArgs;
+//const [name, title] = teamDataArgs;
 
-fs.writeFile('./index.html', generatePage(name, title), err => {
-    if(err) throw err;
+//fs.writeFile('./index.html', generatePage(name, title), err => {
+    //if(err) throw err;
 
-    console.log('Page complete!  Check out index.html to see the output');
-});*/
+    //console.log('Page complete!  Check out index.html to see the output');
+//})
 
 const promptUser = employeeData => {
     
@@ -103,47 +103,17 @@ const promptUser = employeeData => {
 
 promptUser()
     .then(employeeData => {
-        console.log(teamDataArray);
-    }
-);
+        const pageHTML = generatePage(teamDataArray);
+
+        fs.writeFile('./index.html', pageHTML, err => {
+            if (err) throw new Error(err);
+
+            console.log('Page created! Check out index.html in this directory.');
+        });
+    });
 
 
 
 
 
-/*const promptUser = () => {
-    return inquirer.prompt([
-       {
-           type: 'input',
-           name: 'name',
-           message: 'What is your name?'
-       },
-       {
-           type: 'input',
-           name: 'position',
-           message: 'Enter your job title'
-       },
-       {
-           type: 'number',
-           name: 'employeeID',
-           message: 'Please enter your employee ID'
-       },
-       {
-           type: 'input',
-           name: 'email',
-           message: 'Please enter your email address'
-       },
 
-       {
-           type:'number',
-           name: 'office',
-           message: 'What is your office number?'
-       },
-       {
-           type: 'confirm',
-           name: 'confirmAddTeamMember',
-           message: 'Would you like to add another team member?',
-           default: false
-       }
-   ]);
-};*/
